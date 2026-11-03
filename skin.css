@@ -1,69 +1,61 @@
 /* ============================================================
    ROULZY GALAXY - DualSense skin for GamepadViewer.com
    Animated galaxy shell + Roulzy logo on the touchpad.
-   Canvas: 807 x 651  (set the OBS Browser Source to this size)
-   Image paths are relative to THIS file, so keep every file
-   from the skin folder together in the same GitHub folder.
-   Skin layout structure based on the xbox-skin approach used by
-   CrazyGrape's DualSense skin (CC BY 3.0 US).
+   Size: 807 x 651.  Keep every file from the skin folder together.
+   Works two ways:
+     1) GamepadViewer link with &css=<this file>   (uses .custom)
+     2) OBS Browser Source > Custom CSS on the Xbox skin (uses .xbox)
+   Layout approach based on CrazyGrape's DualSense skin (CC BY 3.0 US).
    ============================================================ */
-body {
-  background-color: rgba(0,0,0,0);
-  margin: 0 auto;
-  overflow: hidden;
-}
-.controller.xbox {
-  background: url(body.webp) no-repeat 0 0;
-  width: 807px;
-  height: 651px;
-  margin-left: 0;
-  margin-top: 0;
-}
-.xbox .quadrant { display: none; }
-
-/* ---------- sticks (move with the real sticks) ---------- */
-.xbox .sticks { width: 254px; height: 80px; left: 275px; top: 316px; }
-.xbox .stick { background: url(stick.png) no-repeat 0 0; width: 80px; height: 80px; }
-.xbox .stick.pressed { background-position: -82px 0; }
-.xbox .stick.right { top: 0; left: 174px; }
-
-/* ---------- face buttons (triangle / square / circle / cross) ---------- */
-.xbox .abxy { width: 131px; height: 130px; left: 505px; top: 217px; }
-.xbox .button { background: none; width: 52px; height: 51px; }
-.xbox .button.pressed { background: url(btn.png) no-repeat center; margin-top: 0; }
-.xbox .y { left: 39px; top: 0px; }
-.xbox .x { left: 0px; top: 40px; }
-.xbox .b { left: 79px; top: 40px; }
-.xbox .a { left: 39px; top: 80px; }
-
+body { background-color: rgba(0,0,0,0); margin: 0 auto; overflow: hidden; }
+.controller.custom, .controller.xbox { background: url(body.webp) no-repeat 0 0; width: 807px; height: 651px; margin-left: 0; margin-top: 0; }
+.custom.disconnected, .xbox.disconnected { background: url(body-static.png) no-repeat 0 0; opacity: .45; }
+.custom.disconnected div { display: none; }
+.custom .quadrant, .xbox .quadrant { display: none; }
+/* ---- everything is positioned absolutely inside the 807x651 canvas ---- */
+.custom .sticks, .xbox .sticks, .custom .stick, .xbox .stick, .custom .abxy, .xbox .abxy, .custom .button, .xbox .button, .custom .arrows, .xbox .arrows, .custom .back, .xbox .back, .custom .start, .xbox .start, .custom .dpad, .xbox .dpad, .custom .face, .xbox .face, .custom .touchpad, .xbox .touchpad, .custom .meta, .xbox .meta, .custom .bumpers, .xbox .bumpers, .custom .bumper, .xbox .bumper, .custom .triggers, .xbox .triggers, .custom .trigger, .xbox .trigger, .custom .trigger-button, .xbox .trigger-button { position: absolute; }
+/* ---------- sticks ---------- */
+.custom .sticks, .xbox .sticks { width: 254px; height: 80px; left: 275px; top: 316px; }
+.custom .stick, .xbox .stick { background: url(stick.png) no-repeat 0 0; width: 80px; height: 80px; }
+.custom .stick.pressed, .xbox .stick.pressed { background-position: -82px 0; }
+.custom .stick.left, .xbox .stick.left { top: 0; left: 0; }
+.custom .stick.right, .xbox .stick.right { top: 0; left: 174px; }
+/* ---------- face buttons ---------- */
+.custom .abxy, .xbox .abxy { width: 131px; height: 130px; left: 505px; top: 217px; }
+.custom .button, .xbox .button { background: none; width: 52px; height: 51px; }
+.custom .button.pressed, .xbox .button.pressed { background: url(btn.png) no-repeat center; margin-top: 0; opacity: 1; }
+.custom .y, .xbox .y { left: 39px; top: 0px; }
+.custom .x, .xbox .x { left: 0px; top: 40px; }
+.custom .b, .xbox .b { left: 79px; top: 40px; }
+.custom .a, .xbox .a { left: 39px; top: 80px; }
 /* ---------- create / options ---------- */
-.xbox .arrows { left: 260px; top: 201px; width: 285px; height: 44px; }
-.xbox .back, .xbox .start { position: absolute; float: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
-.xbox .back  { background-image: url(create.png);  width: 31px;  height: 43px;  left: 0px;  top: 0px; }
-.xbox .start { background-image: url(options.png); width: 33px; height: 44px; left: 252px; top: 0px; }
-
+.custom .arrows, .xbox .arrows { left: 260px; top: 201px; width: 285px; height: 44px; }
+.custom .back, .xbox .back, .custom .start, .xbox .start { float: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
+.custom .back.pressed, .xbox .back.pressed, .custom .start.pressed, .xbox .start.pressed { opacity: 1; }
+.custom .back, .xbox .back { background-image: url(create.png); width: 31px; height: 43px; left: 0px; top: 0px; }
+.custom .start, .xbox .start { background-image: url(options.png); width: 33px; height: 44px; left: 252px; top: 0px; }
 /* ---------- d-pad ---------- */
-.xbox .dpad { left: 181px; top: 228px; width: 107px; height: 107px; }
-.xbox .face { position: absolute; opacity: 0; background-repeat: no-repeat; background-position: 0 0; }
-.xbox .face.up { background-image: url(dpad-up.png); width: 48px; height: 56px; left: 29px; top: 0px; }
-.xbox .face.down { background-image: url(dpad-down.png); width: 48px; height: 56px; left: 29px; top: 51px; }
-.xbox .face.left { background-image: url(dpad-left.png); width: 56px; height: 47px; left: 0px; top: 30px; }
-.xbox .face.right { background-image: url(dpad-right.png); width: 57px; height: 47px; left: 50px; top: 30px; }
-
+.custom .dpad, .xbox .dpad { left: 181px; top: 228px; width: 107px; height: 107px; }
+.custom .face, .xbox .face { opacity: 0; background-repeat: no-repeat; background-position: 0 0; }
+.custom .face.pressed, .xbox .face.pressed { opacity: 1; }
+.custom .face.up, .xbox .face.up { background-image: url(dpad-up.png); width: 48px; height: 56px; left: 29px; top: 0px; }
+.custom .face.down, .xbox .face.down { background-image: url(dpad-down.png); width: 48px; height: 56px; left: 29px; top: 51px; }
+.custom .face.left, .xbox .face.left { background-image: url(dpad-left.png); width: 56px; height: 47px; left: 0px; top: 30px; }
+.custom .face.right, .xbox .face.right { background-image: url(dpad-right.png); width: 57px; height: 47px; left: 50px; top: 30px; }
 /* ---------- touchpad + PS button ---------- */
-.xbox .touchpad { position: absolute; left: 293px; top: 182px; width: 221px; height: 128px; }
-.xbox .touchpad.pressed { background: url(touchpad.png) no-repeat center; }
-.xbox .meta { position: absolute; left: 377px; top: 326px; bottom: auto; width: 51px; height: 50px; }
-.xbox .meta.pressed { background: url(ps.png) no-repeat center; }
-
-/* ---------- bumpers (L1 / R1) ---------- */
-.xbox .bumpers { left: 190px; top: 172px; width: 425px; height: 39px; }
-.xbox .bumper { position: absolute; float: none; transform: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
-.xbox .bumper.left, .xbox .bumpers .bumper:first-child { background-image: url(bumper-left.png); width: 88px; height: 39px; left: 0; top: 0px; right: auto; }
-.xbox .bumper.right, .xbox .bumpers .bumper:last-child { background-image: url(bumper-right.png); width: 88px; height: 39px; left: 337px; top: 0px; right: auto; }
-
-/* ---------- triggers (L2 / R2, glow follows how far you pull) ---------- */
-.xbox .triggers { left: 194px; top: 109px; width: 417px; height: 77px; }
-.xbox .trigger { position: absolute; float: none; transform: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
-.xbox .trigger.left, .xbox .triggers .trigger:first-child { background-image: url(trigger-left.png); width: 82px; height: 76px; left: 0; top: 0px; right: auto; }
-.xbox .trigger.right, .xbox .triggers .trigger:last-child { background-image: url(trigger-right.png); width: 82px; height: 77px; left: 335px; top: 0px; right: auto; transform: none; }
+.custom .touchpad, .xbox .touchpad { left: 293px; top: 182px; width: 221px; height: 128px; }
+.custom .touchpad.pressed, .xbox .touchpad.pressed { background: url(touchpad.png) no-repeat center; }
+.custom .meta, .xbox .meta { left: 377px; top: 326px; bottom: auto; width: 51px; height: 50px; }
+.custom .meta.pressed, .xbox .meta.pressed { background: url(ps.png) no-repeat center; }
+/* ---------- bumpers L1 / R1 ---------- */
+.custom .bumpers, .xbox .bumpers { left: 190px; top: 172px; width: 425px; height: 39px; }
+.custom .bumper, .xbox .bumper { float: none; transform: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
+.custom .bumper.pressed, .xbox .bumper.pressed { opacity: 1; }
+.custom .bumper.left, .xbox .bumper.left, .custom .bumpers .bumper:first-child, .xbox .bumpers .bumper:first-child { background-image: url(bumper-left.png); width: 88px; height: 39px; left: 0; top: 0px; right: auto; }
+.custom .bumper.right, .xbox .bumper.right, .custom .bumpers .bumper:last-child, .xbox .bumpers .bumper:last-child { background-image: url(bumper-right.png); width: 88px; height: 39px; left: 337px; top: 0px; right: auto; }
+/* ---------- triggers L2 / R2 (glow strength follows the pull) ---------- */
+.custom .triggers, .xbox .triggers { left: 194px; top: 109px; width: 417px; height: 77px; }
+.custom .trigger, .xbox .trigger, .custom .trigger-button, .xbox .trigger-button { float: none; transform: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
+.custom .trigger-button.pressed, .xbox .trigger-button.pressed { opacity: 1; }
+.custom .trigger.left, .xbox .trigger.left, .custom .triggers .trigger:first-child, .xbox .triggers .trigger:first-child, .custom .trigger-button.left, .xbox .trigger-button.left { background-image: url(trigger-left.png); width: 82px; height: 76px; left: 0; top: 0px; right: auto; }
+.custom .trigger.right, .xbox .trigger.right, .custom .triggers .trigger:last-child, .xbox .triggers .trigger:last-child, .custom .trigger-button.right, .xbox .trigger-button.right { background-image: url(trigger-right.png); width: 82px; height: 77px; left: 335px; top: 0px; right: auto; }
