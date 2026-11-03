@@ -1,0 +1,61 @@
+/* ============================================================
+   ROULZY GALAXY - DualSense skin for GamepadViewer.com
+   Animated galaxy shell + Roulzy logo on the touchpad.
+   Size: 1049 x 846.  Keep every file from the skin folder together.
+   Works two ways:
+     1) GamepadViewer link with &css=<this file>   (uses .custom)
+     2) OBS Browser Source > Custom CSS on the Xbox skin (uses .xbox)
+   Layout approach based on CrazyGrape's DualSense skin (CC BY 3.0 US).
+   ============================================================ */
+body { background-color: rgba(0,0,0,0); margin: 0 auto; overflow: hidden; }
+.controller.custom, .controller.xbox { background: url(body.webp) no-repeat 0 0; width: 1049px; height: 846px; margin-left: 0; margin-top: 0; }
+.custom.disconnected, .xbox.disconnected { background: url(body-static.png) no-repeat 0 0; opacity: .45; }
+.custom.disconnected div { display: none; }
+.custom .quadrant, .xbox .quadrant { display: none; }
+/* ---- everything is positioned absolutely inside the 807x651 canvas ---- */
+.custom .sticks, .xbox .sticks, .custom .stick, .xbox .stick, .custom .abxy, .xbox .abxy, .custom .button, .xbox .button, .custom .arrows, .xbox .arrows, .custom .back, .xbox .back, .custom .start, .xbox .start, .custom .dpad, .xbox .dpad, .custom .face, .xbox .face, .custom .touchpad, .xbox .touchpad, .custom .meta, .xbox .meta, .custom .bumpers, .xbox .bumpers, .custom .bumper, .xbox .bumper, .custom .triggers, .xbox .triggers, .custom .trigger, .xbox .trigger, .custom .trigger-button, .xbox .trigger-button { position: absolute; }
+/* ---------- sticks ---------- */
+.custom .sticks, .xbox .sticks { width: 330px; height: 104px; left: 358px; top: 411px; }
+.custom .stick, .xbox .stick { background: url(stick.png) no-repeat 0 0; width: 104px; height: 104px; }
+.custom .stick.pressed, .xbox .stick.pressed { background-position: -107px 0; }
+.custom .stick.left, .xbox .stick.left { top: 0; left: 0; }
+.custom .stick.right, .xbox .stick.right { top: 0; left: 226px; }
+/* ---------- face buttons ---------- */
+.custom .abxy, .xbox .abxy { width: 170px; height: 170px; left: 656px; top: 282px; }
+.custom .button, .xbox .button { background: none; width: 68px; height: 66px; }
+.custom .button.pressed, .xbox .button.pressed { background: url(btn.png) no-repeat center; margin-top: 0; opacity: 1; }
+.custom .y, .xbox .y { left: 50px; top: 0px; }
+.custom .x, .xbox .x { left: 0px; top: 52px; }
+.custom .b, .xbox .b { left: 102px; top: 52px; }
+.custom .a, .xbox .a { left: 50px; top: 104px; }
+/* ---------- create / options ---------- */
+.custom .arrows, .xbox .arrows { left: 338px; top: 262px; width: 370px; height: 56px; }
+.custom .back, .xbox .back, .custom .start, .xbox .start { float: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
+.custom .back.pressed, .xbox .back.pressed, .custom .start.pressed, .xbox .start.pressed { opacity: 1; }
+.custom .back, .xbox .back { background-image: url(create.png); width: 40px; height: 55px; left: 0px; top: 0px; }
+.custom .start, .xbox .start { background-image: url(options.png); width: 42px; height: 56px; left: 328px; top: 0px; }
+/* ---------- d-pad ---------- */
+.custom .dpad, .xbox .dpad { left: 235px; top: 297px; width: 139px; height: 138px; }
+.custom .face, .xbox .face { opacity: 0; background-repeat: no-repeat; background-position: 0 0; }
+.custom .face.pressed, .xbox .face.pressed { opacity: 1; }
+.custom .face.up, .xbox .face.up { background-image: url(dpad-up.png); width: 62px; height: 72px; left: 38px; top: 0px; }
+.custom .face.down, .xbox .face.down { background-image: url(dpad-down.png); width: 62px; height: 73px; left: 38px; top: 65px; }
+.custom .face.left, .xbox .face.left { background-image: url(dpad-left.png); width: 72px; height: 62px; left: 0px; top: 38px; }
+.custom .face.right, .xbox .face.right { background-image: url(dpad-right.png); width: 73px; height: 62px; left: 66px; top: 38px; }
+/* ---------- touchpad + PS button ---------- */
+.custom .touchpad, .xbox .touchpad { left: 381px; top: 236px; width: 287px; height: 167px; }
+.custom .touchpad.pressed, .xbox .touchpad.pressed { background: url(touchpad.png) no-repeat center; }
+.custom .meta, .xbox .meta { left: 491px; top: 423px; bottom: auto; width: 65px; height: 65px; }
+.custom .meta.pressed, .xbox .meta.pressed { background: url(ps.png) no-repeat center; }
+/* ---------- bumpers L1 / R1 ---------- */
+.custom .bumpers, .xbox .bumpers { left: 248px; top: 224px; width: 551px; height: 49px; }
+.custom .bumper, .xbox .bumper { float: none; transform: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
+.custom .bumper.pressed, .xbox .bumper.pressed { opacity: 1; }
+.custom .bumper.left, .xbox .bumper.left, .custom .bumpers .bumper:first-child, .xbox .bumpers .bumper:first-child { background-image: url(bumper-left.png); width: 114px; height: 49px; left: 0; top: 0px; right: auto; }
+.custom .bumper.right, .xbox .bumper.right, .custom .bumpers .bumper:last-child, .xbox .bumpers .bumper:last-child { background-image: url(bumper-right.png); width: 113px; height: 49px; left: 438px; top: 0px; right: auto; }
+/* ---------- triggers L2 / R2 (glow strength follows the pull) ---------- */
+.custom .triggers, .xbox .triggers { left: 252px; top: 141px; width: 542px; height: 100px; }
+.custom .trigger, .xbox .trigger, .custom .trigger-button, .xbox .trigger-button { float: none; transform: none; background-repeat: no-repeat; background-position: 0 0; opacity: 0; }
+.custom .trigger-button.pressed, .xbox .trigger-button.pressed { opacity: 1; }
+.custom .trigger.left, .xbox .trigger.left, .custom .triggers .trigger:first-child, .xbox .triggers .trigger:first-child, .custom .trigger-button.left, .xbox .trigger-button.left { background-image: url(trigger-left.png); width: 106px; height: 99px; left: 0; top: 0px; right: auto; }
+.custom .trigger.right, .xbox .trigger.right, .custom .triggers .trigger:last-child, .xbox .triggers .trigger:last-child, .custom .trigger-button.right, .xbox .trigger-button.right { background-image: url(trigger-right.png); width: 106px; height: 99px; left: 436px; top: 1px; right: auto; }
